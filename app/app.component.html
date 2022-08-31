@@ -1,0 +1,72 @@
+
+  <header>
+    <nav class="navbar navbar-expand-lg ">
+      <div class="container-fluid">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          
+          <ul class="nav-item" class="navbar-nav">
+            <li><a class="navbar-brand" href="#"><img src="/assets/myimg/navbar_logo.svg"></a></li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/allcars">Home</a> &nbsp;
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/carbybrand">Buy</a>  &nbsp;
+            </li>
+            <li class="nav-item">
+              <a (click)="CheckLogin()" class="nav-link" href="#">Sell</a>  &nbsp;
+            </li>
+           
+          </ul>
+          <!-- Login / Register /logout -->
+          <ul style="" class="nav-item" class="navbar-nav">
+            <div *ngIf="authentication;then Auth; else unAuth"> </div>
+            <ng-template #unAuth>
+              <li class="nav-item">
+                <a routerLink="/login-page">Login</a>&nbsp;&nbsp;
+              </li> <br>
+          
+              <li class="nav-item">
+                <a routerLink="/register">Register</a>&nbsp;&nbsp;
+              </li>
+            </ng-template>
+          
+            <ng-template #Auth>
+              <li class="nav-item">
+                <a routerLink="#" (click)="logout()">logout</a>&nbsp;&nbsp;
+              </li>
+              <li class="nav-item">
+                <a routerLink="/my-cars"> My Cars</a>&nbsp;&nbsp;
+              </li>
+
+            </ng-template>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+   
+  
+  
+  
+  
+  
+  </header>
+
+
+
+
+
+
+
+<div class="container">
+ 
+<router-outlet></router-outlet> 
+
+</div>
+<app-footer></app-footer>
+

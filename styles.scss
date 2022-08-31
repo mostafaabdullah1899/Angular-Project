@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+*{margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: sans-serif;
+
+
+
+}
+header{
+
+
+position: sticky;
+
+top: 0;
+left: 0;
+width: 100%;
+z-index: 1;
+}
+
+nav{
+    background-color:white;
+
+    position: sticky;
+    margin-top: 20px;
+    top:0;
+    
+
+
+border-bottom: 1px  gray solid ;
+
+
+
+}
+.navbar-brand{
+
+text-align: center;
+color: black;
+
+}
+ul{margin-left: 10%;}
+
+
+
+.nav-link{color: black;}

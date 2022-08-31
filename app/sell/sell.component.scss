@@ -1,0 +1,41 @@
+.btns
+{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+.btns button
+{
+    width:40%;
+    padding:10px;
+    font-weight: bold;
+    padding-top: 20px;
+    margin: 20px 20px;
+    background-color: #f58828;
+}
+.sell
+{
+    width:65%;
+    background: linear-gradient(0deg, rgb(153, 154, 185) 0%, rgba(0, 13, 60, 1) 100%);
+}
+.errorMessage
+{
+    width:250px;
+    height: 100px;
+    background-color: maroon;
+    color:white;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+    position:fixed;
+    top:30px;
+    right:20px;
+    padding-block: 10px;
+    align-items: center;
+    z-index: 2;
+}
+.errorMessage button
+{
+    width:100px;
+}

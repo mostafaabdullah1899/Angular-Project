@@ -1,0 +1,25 @@
+<section class="container sell">
+<div class="errorMessage" *ngIf="errorMessage">
+     <b>{{errorMessage}}</b>
+     <button> OK</button> 
+</div>
+<app-top-card 
+[isCarDetailsCompleted]='isCarDetailsCompleted' [isCarImagesCompleted]='isCarImagesCompleted'
+ [isCarDetailsPassed]='isCarDetailsPassed'
+[isCarImagesPassed]='isCarImagesPassed'
+[isCarSaved]='isCarSaved'>
+</app-top-card>
+<div [ngSwitch]="activeChild">
+    <app-car-details (carId)="carId=$event"   (carDetailsCompleted)="isCarDetailsCompleted=$event"  *ngSwitchCase="1"></app-car-details>
+    <app-car-image (isCarSaved)="isCarSaved=$event"   (CarImagesCompleted)="isCarImagesCompleted=$event" *ngSwitchCase="2"></app-car-image>
+    
+    <p *ngSwitchDefault></p>
+</div>
+<div class="btns">
+    <button class="btn btn-primary"*ngIf="activeChild > 0" (click)="back()" >Back</button>
+    <button class=" btn btn-primary" (click)="nextClicked()" >{{activeChild==1?'Next':'Upload'}} </button>
+</div>
+</section>
+<!-- {{userId}} -->
+
+

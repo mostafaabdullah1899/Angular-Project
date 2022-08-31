@@ -1,0 +1,26 @@
+.img{display: flex;}
+.containera{margin-left: 10px;
+    margin-right: 10px;
+width: 1100px;
+height: 500px;
+text-align: center;
+background-image: url("/assets/myimg/c.jpeg");
+background-position:center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.a{
+background-color: white;
+
+width: 300px;
+height: 300px;
+border-radius: 10px;
+border: 2px gray solid;
+
+}
+button{
+
+margin-left: 35%;
+margin-right: 50%;
+width: 100px;
+}

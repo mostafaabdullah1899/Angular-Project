@@ -1,0 +1,30 @@
+
+<div class="container">
+
+
+    <div class="container p-0 mt-5 mb-5"  >
+      <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2 g-4">
+        <div class="col" *ngFor="let car of carsbybrand" routerLink="/details/{{car.id}}" >
+          <div class="card">
+            <i class="bi bi-heart-fill"></i>
+            <img [src]="car.poster" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{car.car_Brand_Name}}</h5>
+              <p class="card-text">{{car.statuse}}</p>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Price:{{car.price}} EGP</li>
+                  <li class="list-group-item">Model: {{car.car_Model_Name}}</li>
+                  <li class="list-group-item">Transmission:{{car.transmission}}</li>
+                </ul>
+              <button type="button" class="btn btn-outline-primary">View Car</button>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  
+
+
+  </div>
+ 

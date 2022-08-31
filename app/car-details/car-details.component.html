@@ -1,0 +1,82 @@
+<section class="container carDetails">
+    <p>Select car brand</p>
+    <input class="search" type="search"/>
+    <div class="brands">
+        <div [id]="brand.brandName" (click)="brandSelected(brand)" class="brand" *ngFor="let brand of brands">
+            <img [src]="brand.brandLogo"/>
+            <p>{{brand.brandName}}</p>
+        </div>
+
+    </div>
+    <p  *ngIf="Car.brandName">Select model from car's make {{Car.brandName}}</p>
+    <div class="models" >
+        <div [id]="model.model_Name" class="model" (click)="modelSelected(model.model_Name)"  *ngFor="let model of models">
+            <img [src]="selectedBrandLogo"/>
+            <p>{{model.model_Name}}</p>
+
+        </div>
+    </div>
+    <p *ngIf="Car.modelName">Year</p>
+    <div  class="years" *ngIf="Car.modelName">
+        <div  [id]="year" class="year" (click)="yearSelected(year)"  *ngFor="let year of years">
+            {{year}}
+        </div>
+
+    </div>
+    <p *ngIf="Car.year">Transmission</p>
+    <div *ngIf="Car.year" class="transmissions">
+        <div id="automatic" class="transmission" (click)="transmissionSelected('automatic')" >
+            <img [src]="isAutomatic? srcImages + 'transmissions/'  + 'auto-white.svg':
+             srcImages + 'transmissions/'  + 'auto-gray.svg'"/>
+            <p>Automatic</p>
+
+        </div>
+        <div id="manual" class="transmission" (click)="transmissionSelected('manual')">
+            <img  [src]="isManual? srcImages + 'transmissions/' +'manual-white.svg'
+            :srcImages + 'transmissions/' +'manual-gray.svg'"/>
+            <p>Manual</p>
+
+        </div>
+    </div>
+    <p *ngIf="Car.transmission">Body Shape</p>
+    <div *ngIf="Car.transmission" class="bodyshapes">
+        <div [id]="shap" (click)="bodyShapSelected(shap)" class="bodyShape"  *ngFor="let shap of bodyShapes">
+            <img [src]="srcImages + 'bodyShapes/'+ shap +'_unselected.png'"/>
+            <p>{{shap | titlecase}}</p>
+        </div>
+    </div>
+    <p>Engine Capacity</p>
+    <div class="EngineCapacities years">
+        <div [id]="capacity" class="year" (click)="engineCapacitySelected(capacity)"  *ngFor="let capacity of engineCapacites">
+            {{capacity}}cc
+
+        </div>
+
+    </div>
+    <p>Mile Age</p>
+    <div class="mileAgeContainer">
+        <button (click)="updateMileAge(true)">+</button>
+        <div class="mileage">
+            <p>{{Car.mileAge}}</p>
+            <p>km</p>
+        </div>
+        <button  (mousedown)="updateMileAge(false)">-</button>
+
+    </div>
+    <p>Asking Price</p>
+    <div class="mileAgeContainer">
+        <button (click)="updatePrice(true)">+</button>
+        <div class="mileage">
+            <p>{{Car.price}}</p>
+            <p>EGP</p>
+        </div>
+        <button  (mousedown)="updatePrice(false)">-</button>
+    </div>
+    <p>Address</p>
+    <textarea (input)="Car.address=address.value; this.isDataCompleted()"  #address  cols="60" rows="5"></textarea>
+    <p>Discription</p>
+    <textarea (input)="Car.discription=discription.value; this.isDataCompleted()"  #discription  cols="60" rows="5"></textarea>
+    
+</section>
+
+

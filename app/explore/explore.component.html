@@ -1,0 +1,49 @@
+
+<div class="containera  "  >
+    <div class="a">
+  
+     <h1 class="font-weight-bold"> Find best car by car transmission</h1>:
+    
+      <div  class="my-2  "  >
+        <label for="" class="my-1 font-italic"><h6>Transmission</h6> </label>
+        <select class="form-Control w-50" (change)="filtertransition($event)" >
+        <option value="all" selected>ALL</option>
+        <option valu="1"  >Manual</option>
+        <option valu="1"  >Automatic</option>
+        </select><br>
+
+  
+  
+    </div>
+  
+  
+  
+  </div>
+
+<div class="container">
+    
+    <div class="container p-0 mt-5 mb-5" >
+      <div class="row row-cols-1 row-cols-lg-4 row-cols-md-2 g-4">
+        <div class="col" *ngFor="let car of cars" routerLink="/details/{{car.id}}" >
+          <div class="card">
+            <i class="bi bi-heart-fill"></i>
+            <img [src]="car.poster" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h5 class="card-title">{{car. car_Brand_Name}}</h5>
+              <p class="card-text">{{car. status}}</p>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Price:{{car. price}}</li>
+                  <li class="list-group-item">Model: {{car. car_Model_Name}}</li>
+                  <li class="list-group-item">Transmission: {{car.transmission}}</li>
+                </ul>
+              <button type="button" class="btn btn-outline-primary">View Car</button>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  
+
+
+  </div>

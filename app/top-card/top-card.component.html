@@ -1,0 +1,32 @@
+<section class="topCard container">
+    <h2 class="form-heading__title text--secondary text--md mb-4 text-center px-3">
+        Sell your car in a few simple steps
+    </h2>
+
+    <p  class=" p1 form-heading__title text--secondary text--md mb-4 text-center px-3">
+        Enter your car info > Upload car photos > Provide your contact details > (Optional) 
+        Features & additional 
+        comments to attract more buyers 
+    </p>
+
+    <p class=" p2 text--14 text--main-blue mt-4">
+        Post a free ad to get connected with potential buyers
+    </p>
+    <div class="path">
+        <div class="phase">
+            <div   [class]="isCarDetailsCompleted? 'blueCircle circle' : ' circle whiteCircle'"  ></div>
+            <small>car details</small>
+        </div>
+        <img  class="rotated"[src]="isCarDetailsPassed?carDetailsArrows.blueArrow : carImagesArrows.whiteArrow "/>
+        <div class="phase">
+            <div [class]="isCarImagesCompleted? 'blueCircle circle' : 'whiteCircle circle'"></div>
+            <small>car images</small>
+        </div>
+        <img class="rotated" [src]="isCarImagesPassed? carImagesArrows.blueArrow: carImagesArrows.whiteArrow"/>
+        <div class="phase">
+      <div [class]="isCarSaved? 'blueCircle circle' : 'whiteCircle circle'"></div>
+            <small>Save Car</small>    
+        </div>
+       
+    </div>
+</section>

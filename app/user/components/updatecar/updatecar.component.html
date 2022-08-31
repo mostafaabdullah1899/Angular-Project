@@ -1,0 +1,122 @@
+<style>
+    .container {
+
+        width: 30%;
+
+        border: 1px solid #fe821e;
+
+        border-radius: 20px;
+
+        margin-top: 200px;
+
+    }
+
+    input,
+
+    select {
+
+        border-radius: 15px;
+
+    }
+
+
+
+    .form-group {
+
+        margin-top: 10px;
+
+    }
+
+
+
+    .btn {
+
+        background-color: #fe821e !important;
+
+        border: #fe821e;
+
+        margin-left: 40%;
+
+        margin-bottom: 5px;
+
+    }
+</style>
+
+<div class="container">
+
+     <form #userForm="ngForm" novalidate (ngSubmit)="editCar(userForm.value)">
+
+
+
+       <h2 style="text-align: center">Car-Edit</h2>
+
+
+
+      <div class="form-group">
+
+
+            <label>Car-Price:</label>
+
+             <input type="text" required name="price" class="form-control" pattern="" value=""
+                #price="ngModel"  [(ngModel)]="userModel.price">
+
+
+
+             </div>
+
+
+        <div class="form-group">
+
+           <label>Address:</label>
+
+             <select name="address" (change)="validateAddress(address.value)"
+                (blur)="validateAddress(address.value)"  required
+                [class.is-invalid]="addressHasError && address.touched" #address="ngModel" class="form-control"        
+                 [(ngModel)]="userModel.address">
+
+                <option selected value="default">Select City</option>
+
+                <option *ngFor="let items of Cities">
+
+                    {{items}}
+
+                    </option>
+
+                </select>
+
+             <small class="text-danger" *ngIf="addressHasError && address.touched"> Please select a
+                city</small>
+
+            </div>
+       <div class="form-group">
+            <label>Car-Description:</label>
+
+            <input type="text" required name="description" class="form-control" pattern=""
+                #description="ngModel" [(ngModel)]="userModel.description">
+    </div>
+
+       <div class="form-check">
+
+            <input name="is_Available" class="form-check-input" type="checkbox" value=""
+                id="flexCheckDefault" #is_Available="ngModel" [(ngModel)]="userModel.is_Available">
+
+            <label class="form-check-label" for="flexCheckDefault">
+
+               Available
+
+                </label>
+
+          </div>
+
+        <div class="form-group">
+
+            <input type="submit" class="btn btn-success" value="save" 
+                [disabled]="userForm.form.invalid || addressHasError">
+
+            </div>
+
+
+
+       </form>
+
+</div>

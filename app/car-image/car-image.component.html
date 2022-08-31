@@ -1,0 +1,24 @@
+<section class="carImages">
+            <p>photos</p>
+    <div class="posterContainer container">
+        <button  (click)="inputPoster.click()">select car poster</button>
+        <input  (change)="startPosterImageProcess($event)"  #inputPoster hidden type="file" id="posteravatar" value="selectImage" name="avatar"accept="image/png, image/jpeg">
+        <div class="poster" *ngIf="posterImage.srcUrl">
+            <img [src]="posterImage.srcUrl"/>
+        </div>
+    </div>
+    <div class="carImagesContainer container">
+        <button  (click)="inputImage.click()">select image</button>
+        <input  (change)="startCarImageProcess($event)"  #inputImage hidden type="file" id="avatar" value="selectImage" name="avatar" accept="image/png, image/jpeg">
+        <div id="ImagesContainer" class="imagesContainer">
+            <img *ngIf="imagesUrls[0]" [src]="imagesUrls[0]" class="imagecar"/>
+            <img *ngIf="imagesUrls[1]"[src]="imagesUrls[1]" class="imagecar"/>
+            <img *ngIf="imagesUrls[2]" [src]="imagesUrls[2]" class="imagecar"/>
+        </div>
+    </div>
+    <div class="uploadImages" *ngIf="uploadProgress">
+        <h4>{{uploadProgress}}%</h4>
+        <h4>{{uploadMessage}}</h4>
+        <button (click)=uploadImageSuccess()>ok</button>
+    </div>
+</section>

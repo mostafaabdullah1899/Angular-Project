@@ -1,0 +1,63 @@
+<style>
+    .container {
+        width: 30%;
+        border: 1px solid #fe821e;
+        border-radius: 20px;
+        margin-top: 100px;
+    }
+
+    input,
+    select {
+        border-radius: 15px;
+    }
+
+    .form-group {
+        margin-top: 10px;
+    }
+
+    .btn {
+        background-color: #fe821e !important;
+        border: #fe821e;
+        margin-left: 40%;
+        margin-bottom: 5px;
+    }
+</style>
+<div class="container">
+    <form #userForm="ngForm" novalidate (ngSubmit)="postData(userForm.value)">
+        <h2 style="text-align: center"> Sign in</h2>
+
+        <!-- Email -->
+        <div class="form-group">
+            <label>Emial:</label>
+            <input type="email" required [class.is-invalid]="email.invalid && email.touched" name="email"
+                #email="ngModel" [(ngModel)]="user.email"  class="form-control" placeholder="your Email" 
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        </div>
+        <div *ngIf="email.errors && email.touched">
+            <small class="text-danger" *ngIf="email.errors['required']"> Email is requird </small>
+            <small class="text-danger" *ngIf="email.errors['pattern']"> Email must like (email@example.com)</small>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" required [class.is-invalid]="pass.invalid && pass.touched" name="password"
+                #pass="ngModel" [(ngModel)]="user.passWord"  class="form-control" placeholder="your Password"
+                pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,20}$">
+        </div>
+        <div *ngIf="pass.errors && pass.touched">
+            <small class="text-danger" *ngIf="pass.errors['required']"> Password is requird </small>
+            <small class="text-danger" *ngIf="pass.errors['pattern']"> Password must contain numbers and letter</small>
+        </div>
+
+
+
+        <div class="form-group">
+            <input   type="submit" class="btn btn-success" value="Sign in"
+                [disabled]="userForm.form.invalid ">
+        </div>
+
+    </form>
+</div>
+
+
